@@ -1,0 +1,47 @@
+[0:00 - 0:45] Introduction & Contexte Historique
+"Bonjour à tous. Aujourd'hui, j'ai le plaisir de vous présenter le guide du CSS conçu pour les étudiants de L1 Informatique à l'EMIT.
+
+Pour comprendre l'utilité du CSS, il faut remonter aux débuts des années 90. À l'époque, le HTML ne servait qu'à structurer du texte brut. Pour changer une couleur ou une police, les développeurs surchargeaient le code avec des balises obsolètes comme <font>, ce qui rendait les pages impossibles à maintenir. C’est en 1994 que Håkon Wium Lie introduit le concept révolutionnaire de Cascading Style Sheets (les feuilles de style en cascade). Approuvé par le W3C en 1996, le CSS a radicalement transformé le web en séparant définitivement le fond — la structure HTML — de la forme — l'apparence visuelle."
+
+[0:45 - 2:00] Anatomie du code et Syntaxe de Base
+"Entrons maintenant dans le vif du sujet avec notre structure de code. Le fichier CSS que nous avons développé utilise une architecture moderne basée sur des variables personnalisées, déclarées dans la pseudo-classe :root. Cela permet une maintenance centralisée des couleurs (comme notre bleu primaire #2c3e50), des polices et des espacements.
+
+La syntaxe fondamentale du CSS repose toujours sur un triptyque simple : un sélecteur, une propriété et une valeur. Par exemple, pour cibler nos titres de section, nous utilisons le sélecteur h2.section-title, nous lui appliquons la propriété font-size et la valeur associée. Nous y ajoutons également un pseudo-élément ::after pour générer une ligne décorative bleue dynamique sous chaque titre."
+
+[2:00 - 3:15] Le Modèle de Boîte et l'Agencement (Layout)
+"L'un des concepts les plus cruciaux que notre guide met en lumière est le Modèle de Boîte (Box Model). Chaque élément HTML est modélisé comme une boîte rectangulaire. Notre code illustre parfaitement la distinction essentielle entre le padding — l'espace intérieur qui aère le contenu à l'intérieur de sa bordure — et le margin — l'espace extérieur qui repousse les éléments voisins.
+
+Pour orchestrer l'agencement global, notre structure s'appuie sur deux systèmes modernes :
+
+Flexbox : utilisé sur le body pour aligner notre barre latérale de navigation de manière flexible à côté du contenu principal.
+
+CSS Grid : mis en place dans la section conclusion pour organiser nos cartes de ressources de manière bidimensionnelle et parfaitement alignée."
+
+[3:15 - 4:15] Accessibilité et Responsive Design
+"Un bon site moderne se doit d'être accessible sur tous les supports. C'est l'art du Responsive Design.
+Notre feuille de style intègre une stratégie adaptative basée sur des règles @media. Par défaut, le site est optimisé pour les grands écrans avec une barre latérale fixe à gauche.
+
+Cependant, dès que la largeur de l'écran descend sous le point de rupture de 768px (la taille standard d'une tablette ou d'un smartphone), la Media Query s'active : la disposition globale bascule en colonne (flex-direction: column), la barre de navigation passe en haut de la page, et les marges s'ajustent pour garantir une lisibilité et une expérience utilisateur optimales sur mobile."
+
+[4:15 - 5:00] Conclusion
+"En résumé, ce projet démontre comment le CSS moderne est devenu le moteur esthétique et ergonomique du web. En maîtrisant la cascade, les sélecteurs et le responsive design, nous passons d'un simple document textuel à une interface utilisateur élégante, structurée et professionnelle.
+
+Ce guide a été réalisé par David Emmanuel, Riad Maranie et Mamyéllonie pour la promotion L1 Informatique de l'EMIT. Je vous remercie pour votre attention et je suis désormais ouvert à vos questions."
+
+❓ Questions potentielles du jury et comment y répondre
+Voici une sélection de questions techniques qu'un enseignant ou un membre du jury pourrait vous poser sur votre code, accompagnée des réponses clés :
+
+1. "Pourquoi avoir utilisé :root pour déclarer vos variables au lieu de les mettre directement dans le body ?"
+Réponse : "La pseudo-classe :root correspond à l'élément le plus haut dans l'arbre du document (l'élément <html>). Déclarer les variables CSS ici garantit qu'elles ont une portée globale et qu'elles sont accessibles par absolument tous les éléments du site, sans exception. De plus, cela donne un poids de spécificité plus propre et centralise le thème graphique."
+
+2. "Dans votre code, on voit que le fichier CSS se termine brusquement par des accolades fermantes en double après la Media Query. Qu'est-ce que cela implique ?"
+Réponse : "C'est une erreur de syntaxe ou un résidu de fusion dans le fichier de production. En CSS, une accolade mal fermée ou en trop peut bloquer l'interprétation des règles qui suivent par le navigateur. Il est crucial de nettoyer le fichier avec un outil de validation (comme le validateur du W3C) pour s'assurer que le code s'exécute correctement."
+
+3. "Quelle est la différence fondamentale entre Flexbox et CSS Grid, et comment les avez-vous articulés ?"
+Réponse : "Flexbox est unidimensionnel : il aligne les éléments soit sur une ligne, soit sur une colonne (comme notre structure sidebar + main-content). CSS Grid est bidimensionnel : il gère simultanément les lignes et les colonnes. Nous avons utilisé Grid spécifiquement pour la section des ressources (.resources-grid) afin de créer automatiquement un tableau de cartes adaptatives grâce à repeat(auto-fit, minmax(220px, 1fr))."
+
+4. "Pourquoi utilisez-vous box-sizing: border-box; sur tous vos éléments (*) ?"
+Réponse : "Par défaut, le navigateur calcule la taille d'une boîte en ajoutant le padding et les bordures à la largeur initiale (content-box), ce qui fausse souvent les calculs de mise en page. Avec border-box, la largeur (width) inclut le padding et la bordure. Si on dit qu'un bloc fait 100px de large, il fera exactement 100px, peu importe le padding qu'on lui ajoute. Cela simplifie considérablement le design."
+
+5. "Qu'est-ce que la propriété scroll-behavior: smooth; apporte à votre projet ?"
+Réponse : "Elle améliore l'expérience utilisateur (UX). Lorsque l'utilisateur clique sur un lien du sommaire dans la barre latérale (par exemple #histoire), au lieu de sauter instantanément de manière abrupte à la section, le navigateur effectue un défilement fluide et visuel jusqu'à l'élément ciblé."
