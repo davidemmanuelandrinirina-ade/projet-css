@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./ranf.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS explicatiife</title>
+    <h1 class="">EXPLICATIFE CSS ET UTILISATION</h1>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Guide du CSS - L1 Informatique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-container">
+            <div class="logo-title">EMIT</div>
+            <div class="logo-subtitle">École de Management et d'Innovation Technologique</div>
+            <div class="logo-university">Université de Fianarantsoa</div>
+        </div>
+        
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#histoire">Histoire</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#syntaxe">Base syntaxe CSS</a></li>
+            <li><a href="#couleurs">Les couleurs et les textes</a></li>
+            <li><a href="#marges">Les marges et emplacements</a></li>
+            <li><a href="#selecteurs">Les sélecteurs CSS</a></li>
+            <li><a href="#responsive">Responsive Design & Media Queries</a></li>
+            <li><a href="#layout">Flexbox et Grid</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <header>
+            <h1>LE GUIDE DU CSS</h1>
+            <div class="subtitle">L1 Informatique</div>
+        </header>
+
+        <section id="histoire">
+            <h2 class="section-title">Histoire</h2>
+            <h3>La Création (1994 - 1996)</h3>
+            <p>Au début des années 90, le HTML servait uniquement à structurer du texte (titres, paragraphes). Pour changer une couleur ou une police, les développeurs utilisaient des balises comme <code>&lt;font&gt;</code>, ce qui rendait le code illisible et difficile à maintenir.</p>
+            <p>C'est <strong>Håkon Wium Lie</strong>, travaillant au CERN aux côtés de Tim Berners-Lee, qui publie la première proposition de <em>Cascading HTML Style Sheets</em> en octobre 1994. Son idée de génie ? Le concept de "Cascade", permettant à plusieurs feuilles de style de s'empiler et de définir des priorités.</p>
+            
+            <h3>Le premier standard (1996)</h3>
+            <p>Le W3C (World Wide Web Consortium) approuve la recommandation CSS 1 en décembre 1996.</p>
+            <ul>
+                <li><strong>Capacités :</strong>
+                    <p id="police"> Polices, couleurs de texte, alignement et marges de base.
+
+                    </p>
+                </li>
+                <li><strong>Le problème :</strong> Les navigateurs de l'époque (Internet Explorer 3 et Netscape Navigator 4) interprétaient les règles de manière très aléatoire, créant des cauchemars pour les développeurs.</li>
+            </ul>
+
+            <h3>Le positionnement et l'ambition (1998)</h3>
+            <p>Arrivé très vite en 1998, le CSS 2 apporte des concepts fondamentaux encore utilisés aujourd'hui :</p>
+            <ul>
+                <li>Le positionnement (absolute, relative).</li>
+                <li>Les types de médias (pour l'impression).</li>
+                <li>Les sélecteurs plus complexes.</li>
+            </ul>
+            <p>C'est à cette époque que le <strong>Modèle de Boîte (Box Model)</strong> devient central, définissant comment le contenu, le rembourrage (padding), la bordure et la marge interagissent.</p>
+
+            <h3>La modularisation (Depuis 1999)</h3>
+            <p>Contrairement aux versions précédentes, le CSS 3 n'est pas un bloc monolithique. Le W3C a décidé de le diviser en modules indépendants (Couleurs, Flexbox, Animations, etc.) pour permettre des mises à jour plus rapides sans attendre que tout le langage évolue.</p>
+            <p><em>2000 - 2010 :</em> Une période de transition lente, marquée par la domination d'Internet Explorer 6 qui freinait l'adoption des nouveautés.</p>
+        </section>
+
+        <section id="intro">
+            <h2 class="section-title">Introduction au CSS</h2>
+            <p><strong>Cascading Style Sheets</strong> ou CSS, est un langage principalement utilisé pour la stylisation de pages web. Il s’utilise surtout avec un autre langage nommé HTML afin d’améliorer la qualité esthétique d’un site, afin qu’il soit plus moderne et plus maniable dans son utilisation.</p>
+            <p>Sans lui, la page HTML serait simplement du texte brut avec très peu de mise en forme.</p>
+            <p>Grâce au CSS, il est possible de modifier : les couleurs, les polices, les tailles, les espacements, les animations et la disposition des éléments.</p>
+            
+            <h3>Exemple pratique :</h3>
+            <p><strong>HTML :</strong></p>
+            <div class="code-block">&lt;p&gt;Hello World&lt;/p&gt;</div>
+            <p><strong>CSS :</strong></p>
+            <div class="code-block">
+                <p class="exemple1" >
+                    Hello World
+                </p>
+p {<br>
+&nbsp;&nbsp;color: red;<br>
+&nbsp;&nbsp;font-size: 30px;<br>
+}
+            </div>
+            <p>Dans cet exemple, le texte devient rouge et sa taille passe à 30 pixels. Le CSS est aujourd’hui indispensable dans le développement web moderne.</p>
+        </section>
+
+        <section id="syntaxe">
+            <h2 class="section-title">Les bases de la syntaxe en CSS</h2>
+            <p>Une règle CSS est composée de trois parties : <strong>Le sélecteur</strong>, <strong>La propriété</strong>, et <strong>La valeur</strong>.</p>
+            <ul>
+                <li><strong>Le sélecteur :</strong> sert à choisir les éléments HTML qui vont être stylisés. Il en existe plusieurs ayant chacun des attributs bien déterminés (balise, classe, identifiant, universel, descendant).</li>
+                <li><strong>La propriété :</strong> sert à définir ce qu’on veut modifier sur un élément. Le sélecteur choisit <em>qui</em> sera modifié, la propriété choisit <em>quoi</em> modifier.</li>
+                <li><strong>La valeur :</strong> correspond à ce qu’on donne à une propriété (ex: une couleur spécifique ou une taille).</li>
+            </ul>
+            <div class="code-block">
+/* Structure de base */<br>
+sélecteur {<br>
+&nbsp;&nbsp;propriété: valeur;<br>
+}
+            </div>
+        </section>
+
+        <section id="couleurs">
+            <h2 class="section-title">Les couleurs et les textes</h2>
+            <p>Le CSS permet de personnaliser entièrement l’apparence du texte et des couleurs d’un site web. Grâce à ce dernier, on peut changer la couleur du texte, la couleur de fond, la taille des lettres, la police d’écriture, l’alignement ou encore ajouter des effets.</p>
+            
+            <h3>Exemples d'utilisation :</h3>
+            <p>Changer la couleur du texte :</p>
+            <div class="code-block">p { color: blue; }</div>
+            
+            <p>Appliquer une police d'écriture :</p>
+            <div class="code-block">p { font-family: Arial; }</div>
+            
+            <p>Aligner un titre au centre :</p>
+            <div class="code-block">h1 { text-align: center; }</div>
+            
+            <p>En combinant ces propriétés, on peut créer des interfaces modernes et agréables à regarder. Le design typographique est essentiel pour améliorer la lecture d’un site web.</p>
+        </section>
+
+        <section id="marges">
+            <h2 class="section-title">Les marges et espacements</h2>
+            <p>En CSS, les marges et les espacements permettent d’organiser les éléments d’une page web afin d’améliorer la lisibilité, l’esthétique et l’expérience utilisateur. Une bonne gestion des espaces rend une interface plus claire, plus moderne et plus professionnelle.</p>
+            
+            <h3>Différence entre margin et padding :</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Propriété</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Margin</strong></td>
+                        <td>Espace extérieur (autour de la bordure)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Padding</strong></td>
+                        <td>Espace intérieur (entre le contenu et la bordure)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Illustration du Modèle de Boîte (Box Model) :</h3>
+            <div class="box-model-diagram">
+                <div class="bm-margin">
+                    MARGIN (Extérieur)
+                    <div class="bm-padding">
+                        PADDING (Intérieur)
+                        <div class="bm-content">CONTENU</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Importance des espacements :</h3>
+            <p>Une bonne utilisation des marges et du padding permet d'aérer la page, d'améliorer la lecture, de mieux séparer les sections, de rendre le design moderne et d'éviter une interface surchargée.</p>
+            <p><em>NB :</em> Une bonne gestion du margin et du padding permet de créer des interfaces élégantes, modernes et agréables à utiliser.</p>
+        </section>
+
+        <section id="selecteurs">
+            <h2 class="section-title">Les sélecteurs CSS</h2>
+            <p>Les sélecteurs CSS permettent de cibler les éléments HTML afin d’appliquer des styles. Ils sont essentiels pour personnaliser l’apparence d’une page web et organiser efficacement le design.</p>
+            <div class="code-block">
+p {<br>
+&nbsp;&nbsp;color: blue;<br>
+}
+            </div>
+            <p>Dans l'exemple ci-dessus, tous les paragraphes du document cible (balises <code>&lt;p&gt;</code>) deviennent bleus.</p>
+        </section>
+
+        <section id="responsive">
+            <h2 class="section-title">Responsive Design et les Media Queries</h2>
+            <p>Le Responsive Design (ou design adaptatif) est l'art de créer des sites web qui s'ajustent automatiquement à la taille de l'écran de l'utilisateur, qu'il soit sur un smartphone, une tablette ou un ordinateur de bureau.</p>
+            
+            <h3>1. La balise Meta Viewport</h3>
+            <p>Avant d'écrire du CSS, il faut indiquer au navigateur comment gérer l'affichage sur mobile dans le fichier HTML (entre les balises <code>&lt;head&gt;</code>) :</p>
+            <div class="code-block">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div>
+
+            <h3>2. Les Media Queries</h3>
+            <p>Une Media Query est une règle qui permet d'appliquer du CSS seulement si certaines conditions sont remplies (généralement la largeur de l'écran).</p>
+            <div class="code-block">
+/* Style par défaut (Mobile First) */<br>
+p { font-size: 14px; }<br><br>
+/* Style pour les écrans de plus de 768px (Tablettes/PC) */<br>
+@media (min-width: 768px) {<br>
+&nbsp;&nbsp;p {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size: 18px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: darkblue;<br>
+&nbsp;&nbsp;}<br>
+}
+            </div>
+
+            <h3>3. Les points de rupture (Breakpoints) courants :</h3>
+            <ul>
+                <li><strong>Mobile :</strong> Jusqu'à 480px.</li>
+                <li><strong>Tablette :</strong> De 481px à 768px.</li>
+                <li><strong>Ordinateur :</strong> Au-delà de 769px.</li>
+            </ul>
+        </section>
+
+        <section id="layout">
+            <h2 class="section-title">Flexbox et Grid (Mise en page moderne)</h2>
+            <p>Grâce au CSS, il est possible de modifier la disposition des éléments de manière très précise. Flexbox et Grid sont les deux systèmes indispensables pour organiser vos blocs.</p>
+            
+            <h3>1. Flexbox : L'alignement flexible</h3>
+            <p>Idéal pour aligner des éléments sur une seule dimension (soit en ligne, soit en colonne). Utilisé pour les barres de navigation, aligner des icônes ou centrer un élément.</p>
+            <ul>
+                <li>Activé sur le parent avec : <code>display: flex;</code></li>
+                <li><code>justify-content</code> gère l'alignement horizontal.</li>
+                <li><code>align-items</code> gère l'alignement vertical.</li>
+            </ul>
+
+            <h3>2. CSS Grid : La structure en grille</h3>
+            <p>Contrairement à Flexbox, CSS Grid travaille sur deux dimensions à la fois (les lignes ET les colonnes). C'est l'outil parfait pour créer la structure globale d'une page (header, barre latérale, zone de contenu, footer).</p>
+            <ul>
+                <li>Activé sur le parent avec : <code>display: grid;</code></li>
+                <li>Définition des colonnes : <code>grid-template-columns: 1fr 2fr;</code> (crée une petite colonne et une grande).</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2 class="section-title">Conclusion</h2>
+            <p>Comme nous l'avons vu tout au long de ce guide, le CSS est le moteur esthétique du web. Depuis sa création par Håkon Wium Lie en 1994, il n'a cessé d'évoluer pour offrir aux développeurs des outils de plus en plus puissants et précis.</p>
+            
+            <h3>Ce qu'il faut retenir :</h3>
+            <ul>
+                <li><strong>La séparation des rôles :</strong> Le HTML structure le contenu brut tandis que le CSS gère toute l'apparence.</li>
+                <li><strong>La précision :</strong> Grâce aux sélecteurs, aux propriétés et aux valeurs, vous avez un contrôle total sur chaque pixel de votre site.</li>
+                <li><strong>L'organisation :</strong> Une bonne gestion du "Modèle de Boîte" (marges et espacements) est le secret d'une interface moderne et lisible.</li>
+            </ul>
+
+            <h3>Ressources pour aller plus loin :</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>Documentations</h4>
+                    <p>MDN Web Docs, W3Schools</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Par le jeu</h4>
+                    <p>Flexbox Froggy, CSS Grid Garden</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Inspiration & Outils</h4>
+                    <p>CSS-Tricks, Can I Use, Google Fonts</p>
+                </div>
+                <div class="resource-card">
+                    <h4>Développement</h4>
+                    <p>Inspecteur Web (F12), CodePen</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>GUIDE ÉCRIT PAR LES MEMBRES DU GROUPE :</strong></p>
+            <ul class="team-list">
+                <li>ANDRIANIRINA David Emmanuel — 155I26</li>
+                <li>BETSAROANA Riad Maranie — 183I26</li>
+                <li>ONJANIRINA Mamyéllonie — 271I26</li>
+            </ul>
+            <p class="copyright">&copy; 2026 - EMIT L1 Informatique</p>
+        </footer>
+
+    </main>
+</body>
+</html>
